@@ -29,4 +29,12 @@ public class UserService(AppDbContext context)
 
         return user;
     }
+
+    public async ValueTask<User> GetByIdAsync(Guid id)
+    {
+        var foundUser = await context.Users.FirstOrDefaultAsync(@this => @this.Id == id)
+                        ?? throw new ArgumentException("User not found!");
+
+        return foundUser;
+    }
 }

@@ -14,6 +14,12 @@ public class UsersController(UserService userService) : ControllerBase
         return Ok(userService.GetUsers(paginationOptions));
     }
 
+    [HttpGet("{id:guid}")]
+    public async ValueTask<IActionResult> GetByIdAsync([FromRoute] Guid id)
+    {
+        return Ok(await userService.GetByIdAsync(id));
+    }
+
     [HttpPut]
     public async ValueTask<IActionResult> UpdateUser(User user)
     {
