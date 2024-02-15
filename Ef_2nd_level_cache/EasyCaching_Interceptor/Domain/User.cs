@@ -8,5 +8,5 @@ public class User : IEntity
 
     public string LastName { get; set; }
 
-    public string EmailAddress { get; set; }    
+    public string EmailAddress { get; set; }
 }
